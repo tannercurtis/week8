@@ -7,28 +7,29 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
   line-height: 1.5;
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2em;
   line-height: 1;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 h3 {
   font-family: "Merriweather", serif;
-  font-size: 25px;
+  font-size: 1.25em;
   font-weight: bold;
 }
 
 p {
-  margin: 0 0 30px 0;
+  margin: 0 0 1.5em 0;
 }
 
 .button {
@@ -41,16 +42,16 @@ p {
   color: black;
   display: block;
   text-align: center;
-  padding: 12px;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .2);
-  border-radius: 5px;
+  padding: 0.6em;
+  box-shadow: inset 0 -0.15em 0 rgba(0, 0, 0, .2);
+  border-radius: .25em;
 }
 
 header {
   background: black;
   color: white;
   overflow: hidden;
-  border-bottom: 4px solid yellow;
+  border-bottom: 0.2em solid yellow;
   padding: 0 3%;
 }
 
@@ -63,15 +64,15 @@ header h1 {
   float: left;
   color: yellow;
   font-family: "Merriweather", serif;
-  font-size: 30px;
-  margin: 20px 0 0 0;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
 }
 
 header nav {
   float: right;
   width: 55%;
   text-align: right;
-  padding: 20px 0;
+  padding: 1em 0;
 }
 
 header nav a {
@@ -82,18 +83,18 @@ header nav a:hover {
   color: yellow;
 }
 
-header nav a#hamburger {
+header a#hamburger {
   display: none;
-  padding: 15px;
+  padding: .75em;
 }
 
 .tagline {
   font-family: "Merriweather", serif;
   text-align: center;
   margin: 0;
-  padding: 20px 40px;
-  font-size: 25px;
-  line-height: 25px;
+  padding: 1em 2em;
+  font-size: 1.25em;
+  line-height: 1.25em;
   font-style: italic;
   background: #C6C6C6;
   border-top: 1px solid #AAA;
@@ -105,37 +106,37 @@ header nav a#hamburger {
 }
 
 #are {
-  border-bottom: 3px solid yellow;
+  border-bottom: .15em solid yellow;
 }
 
 .banner {
   background: url("../images/coworking.jpg") center center no-repeat;
   background-size: cover;
   overflow: hidden;
-  padding: 40px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, .75);
+  padding: 2em;
+  box-shadow: inset 0 0 .25em rgba(0, 0, 0, .75);
 }
 
 .blurb {
   background: rgba(255, 255, 255, .8);
-  width: 430px;
-  padding: 50px;
+  width: 33.5938%;
+  padding: 2.5em;
   float: right;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .75);
+  box-shadow: 0 0 .25em rgba(0, 0, 0, .75);
 }
 
 .callouts {
   background: #EEE;
   display: flex;
-  padding: 25px 0;
+  padding: 1.25em 0;
   justify-content: center;
 }
 
 .callout {
-  width: 425px;
-  padding: 25px 40px;
+  width: 33.2031%;
+  padding: 1.25em 2em;
   box-sizing: border-box;
-  border-right: 1px solid rgb(200, 200, 200);
+  border-right: .05em solid rgb(200, 200, 200);
 }
 
 .callout:last-child {
@@ -149,5 +150,95 @@ header nav a#hamburger {
 footer {
   background: black;
   color: white;
-  padding: 25px 40px;
+  padding: 1.25em 2em;
+}
+
+/*Large/tablet scale 900px: Reduce padding on tagline and blurb, */
+
+@media only screen and (max-width: 900px) {
+  header h1 {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: .5em 0 0 0;
+  }
+
+  header nav {
+    display: block;
+    width: 100%;
+    padding: .5em;
+    text-align: center;
+  }
+
+  .tagline {
+    padding: .5em 1em;
+    font-size: 1em;
+  }
+
+  .blurb {
+    padding: 1.75em;
+    font-size: .9em;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .callouts {
+    display: block;
+    padding: 0 0;
+  }
+
+  .callout {
+    width: 100%;
+}
+
+/*Mobile scale: 500px collapse nav, remove tagline, scale photo, banner text and unfloat/flex, unfloat callouts*/
+
+@media only screen and (max-width: 500px) {
+  body {
+    font-size: 18px;
+  }
+
+  header h1 {
+    padding: .5em .5em;
+    margin: 0;
+  }
+
+  header a#hamburger {
+    display: block;
+    text-align: center;
+    padding-top: 0;
+    padding-left: .5em;
+  }
+
+  header:hover nav {
+    display: block;
+  }
+
+  header nav {
+    float: none;
+    display: none;
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .blurb p {
+    font-size: 16px;
+  }
+
+  .blurb {
+    width: 80%;
+    padding: 1.5em;
+    float: none;
+    text-align: center;
+    margin: 0 auto;
+  }  
+
 }
